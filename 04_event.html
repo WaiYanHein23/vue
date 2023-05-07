@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+   <div id="app">
+    <h2>{{number}}</h2>
+    <button @click="dec()">decrease</button>
+    <button @click="inc()">increase</button>
+    <p v-if="number<0">It is minus number</p>
+    <p v-if="number==0">It is equal zero</p>
+    <p v-if="number>0">It is plus number</p>
+    <input type="text" v-model="myText" @keyup.enter="send()">  
+    <button @click="send()">Send</button>
+   </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+<script>
+    let app=new Vue({
+        el:'#app',
+        data:{
+           number:0,
+           myText:''
+        },
+        methods:{
+           dec(){
+            this.number--;
+           },
+           inc(){
+            this.number++;
+
+           },
+           send(){
+            console.log(this.myText)
+            this.myText=''
+           }
+        }
+    })
+</script>
+</html>
